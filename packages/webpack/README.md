@@ -1,13 +1,11 @@
-# @svgr/webpack
-
-[![Build Status][build-badge]][build]
-[![version][version-badge]][package]
-[![MIT License][license-badge]][license]
+# svgr-loader
 
 Webpack loader for SVGR.
 
+## This is published fork with pull request [#139](https://github.com/smooth-code/svgr/pull/139)
+
 ```
-npm install @svgr/webpack
+npm install svgr-loader
 ```
 
 ## Usage
@@ -17,7 +15,7 @@ In your `webpack.config.js`:
 ```js
 {
   test: /\.svg$/,
-  use: ['@svgr/webpack'],
+  use: ['svgr-loader'],
 }
 ```
 
@@ -40,7 +38,7 @@ const App = () => (
   test: /\.svg$/,
   use: [
     {
-      loader: '@svgr/webpack',
+      loader: 'svgr-loader',
       options: {
         native: true,
       },
@@ -58,7 +56,7 @@ In your `webpack.config.js`:
 ```js
 {
   test: /\.svg$/,
-  use: ['@svgr/webpack', 'url-loader'],
+  use: ['svgr-loader', 'url-loader'],
 }
 ```
 
@@ -77,7 +75,7 @@ const App = () => (
 
 ### Use your own Babel configuration
 
-By default, `@svgr/webpack` includes a `babel-loader` with [optimized configuration](https://github.com/smooth-code/svgr/blob/master/src/webpack.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
+By default, `svgr-loader` includes a `babel-loader` with [optimized configuration](https://github.com/smooth-code/svgr/blob/master/src/webpack.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
 
 ```js
 // Example using preact
@@ -91,7 +89,7 @@ By default, `@svgr/webpack` includes a `babel-loader` with [optimized configurat
       },
     },
     {
-      loader: '@svgr/webpack',
+      loader: 'svgr-loader',
       options: { babel: false },
     }
   ],
@@ -109,7 +107,7 @@ It is possible to detect the module that requires your SVG using [`Rule.issuer`]
     issuer: {
       test: /\.jsx?$/
     },
-    use: ['babel-loader', '@svgr/webpack', 'url-loader']
+    use: ['babel-loader', 'svgr-loader', 'url-loader']
   },
   {
     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
@@ -121,10 +119,3 @@ It is possible to detect the module that requires your SVG using [`Rule.issuer`]
 ## License
 
 MIT
-
-[build-badge]: https://img.shields.io/travis/smooth-code/svgr.svg?style=flat-square
-[build]: https://travis-ci.org/smooth-code/svgr
-[version-badge]: https://img.shields.io/npm/v/@svgr/webpack.svg?style=flat-square
-[package]: https://www.npmjs.com/package/@svgr/webpack
-[license-badge]: https://img.shields.io/npm/l/@svgr/webpack.svg?style=flat-square
-[license]: https://github.com/smooth-code/svgr/blob/master/LICENSE
